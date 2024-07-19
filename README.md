@@ -110,4 +110,9 @@ Contributions to this project are welcome. Please fork the repository and submit
 License
 -------
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+
+No Claims or Guarantees
+------------
+
+Note that while this appears to work very well on a Lenovo P1 running Pop!_OS 22.04 LTS, I make absolutely no claims that it will work for you.  Excercise caution, common sense, and do plenty of testing!!
