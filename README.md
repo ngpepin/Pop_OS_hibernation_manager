@@ -6,7 +6,7 @@ This repository contains a script designed to manage hibernation attempts on Ubu
 Description
 -----------
 
-The `Hibernation Management Script` helps ensure successful system hibernation by automatically handling processes that may impede the hibernation process. If the system fails to hibernate, the script identifies and terminates these blocking processes and retries the hibernation.
+The `Hibernation Management Script` helps ensure successful system hibernation by automatically handling processes that may impede the hibernation process. If the system fails to hibernate, the script identifies and terminates these blocking processes and retries the hibernation.  A whitelist of processes that must NOT be killed (e.g., core OS processes like systemd and dbus-daemon), and a cap on the number of processes that CAN be killed, are included to provide some guardrails.
 
 Features
 --------
@@ -79,7 +79,11 @@ Once installed and enabled, the service will trigger automatically when the syst
 Whitelist Configuration
 -----------------------
 
-Review and modify the whitelist in the script to ensure critical system processes are not terminated. Although it is unlikely that auditd would log a core OS process as a blocker, or that the script would go on an indiscriminate killing rampage (perhaps as a result of a parsing error/unanticipated edge case), this is a recommended precaution for ensuring system stability. As an additional guardrail, the script will not kill more processes than the max specified with MAX_KILL_COUNT (arbitrarily set to 3 in the repo).
+Review and modify the whitelist in the script to ensure critical system processes are not terminated. This is not a complete list!
+
+Although it is unlikely that auditd would log a core OS process as a blocker, or that the script would go on an indiscriminate killing rampage, perhaps as a result of a parsing error/unanticipated edge case, the whitelist should be taken seriously as a simple precaution that could help maintain system stability and avoid data loss. 
+
+As an additional guardrail, the script will not kill more processes than the max specified with MAX_KILL_COUNT (arbitrarily set to 3 in the repo).   This provides an additional mitigation against Freddy Krueger behavior. 
 
 Contributing
 ------------
