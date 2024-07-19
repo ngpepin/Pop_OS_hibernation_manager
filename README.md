@@ -79,7 +79,7 @@ Once installed and enabled, the service will trigger automatically when the syst
 Whitelist Configuration
 -----------------------
 
-Review and modify the whitelist in the script to ensure critical system processes are not terminated. Although it is unlikely that auditd would log a core OS process as a blocker, or that the script would an indiscriminate killing rampage (perhaps as a result of a parsing error/unanticipated edge case), this is a recommended precaution for ensuring system stability. As an additional guardrail, the script will not kill more processes than the max specified with MAX_KILL_COUNT (arbitrarily set to 3 in the repo).
+Review and modify the whitelist in the script to ensure critical system processes are not terminated. Although it is unlikely that auditd would log a core OS process as a blocker, or that the script would go on an indiscriminate killing rampage (perhaps as a result of a parsing error/unanticipated edge case), this is a recommended precaution for ensuring system stability. As an additional guardrail, the script will not kill more processes than the max specified with MAX_KILL_COUNT (arbitrarily set to 3 in the repo).
 
 Contributing
 ------------
